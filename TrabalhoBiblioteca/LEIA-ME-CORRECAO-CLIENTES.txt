@@ -1,0 +1,49 @@
+CORREÇÃO DO PROJETO CRUD FUNEC PAYARA - CADASTRO DE CLIENTES
+
+Projeto mantido no formato original do NetBeans/Ant.
+Não foi convertido para Maven.
+
+ERRO PRINCIPAL
+Ao acessar o cadastro de clientes, o sistema apresentava erro porque a JSP formCliente.jsp possuía referências incorretas:
+
+1) Usava List<Cidades>, mas a classe correta do projeto é model.Cidade.
+2) Chamava métodos inexistentes no model Cliente, como getCidade() e getCodigo_idade().
+3) Chamava getCodigo_cidade() na classe Cidade, porém Cidade possui getCodigo().
+4) O ClienteController, na ação novo, enviava uma lista de clientes para a tela, mas o formulário precisava da lista de cidades.
+5) O ClienteController, na ação editar, enviava uma lista no atributo cliente, mas a JSP esperava um único objeto Cliente.
+6) No doPost, o código era convertido para int antes de verificar se estava vazio. Isso quebrava o cadastro de novo cliente.
+
+ARQUIVOS ALTERADOS
+
+1) src/java/controller/ClienteController.java
+- Mantido @WebServlet("/clientes").
+- Na ação novo, agora carrega cidadeDAO.listar() e envia como atributo "cidades".
+- Na ação editar, agora envia o objeto Cliente correto no atributo "cliente".
+- Na ação editar, também envia a lista de cidades para preencher o select.
+- No doPost, o campo codigo só é convertido para int quando existe valor.
+- Código comentado explicando as correções.
+
+2) web/formCliente.jsp
+- Corrigido o cast para List<Cidade>.
+- Corrigidos os métodos usados para comparar e exibir a cidade.
+- Corrigido o value do option para c.getCodigo().
+- Corrigido o select de sexo para marcar Masculino/Feminino corretamente ao editar.
+- Código comentado explicando as correções.
+
+OBSERVAÇÃO SOBRE O PAYARA
+O log enviado também mostrava conflito de deploy:
+"Virtual server server already has a web module CrudFunecPayara loaded at /CrudFunecPayara"
+
+Isso significa que o Payara já tinha uma publicação antiga do mesmo projeto no mesmo contexto.
+No NetBeans, antes de executar novamente, faça:
+
+1) Aba Services/Serviços
+2) Servers
+3) Payara Server
+4) Applications
+5) Clique com botão direito em CrudFunecPayara
+6) Undeploy / Remover implantação
+7) Limpe e execute o projeto novamente: Clean and Build, depois Run
+
+ACESSO CORRETO
+http://localhost:8080/CrudFunecPayara/clientes?acao=listar

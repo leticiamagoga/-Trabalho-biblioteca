@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/F:/TrabalhoBiblioteca/web/index.jsp</file>
+            <file>file:/F:/TrabalhoBiblioteca/web/login.jsp</file>
+            <file>file:/F:/TrabalhoBiblioteca/web/navbar.jsp</file>
+            <file>file:/F:/TrabalhoBiblioteca/web/usuarios/lista.jsp</file>
+            <file>file:/F:/TrabalhoBiblioteca/web/css/style.css</file>
+            <file>file:/F:/TrabalhoBiblioteca/web/registro.jsp</file>
+            <file>file:/F:/TrabalhoBiblioteca/web/usuarios/form.jsp</file>
+            <file>file:/F:/TrabalhoBiblioteca/web/WEB-INF/beans.xml</file>
+            <file>file:/F:/TrabalhoBiblioteca/web/WEB-INF/web.xml</file>
+            <file>file:/F:/TrabalhoBiblioteca/web/emprestimos/form.jsp</file>
+            <file>file:/F:/TrabalhoBiblioteca/web/emprestimos/formDevolucao.jsp</file>
+            <file>file:/F:/TrabalhoBiblioteca/web/emprestimos/lista.jsp</file>
+            <file>file:/F:/TrabalhoBiblioteca/web/img/imagesbibli.jpg</file>
+            <file>file:/F:/TrabalhoBiblioteca/src/java/DAO/EmprestimoDAO.java</file>
+            <file>file:/F:/TrabalhoBiblioteca/src/java/CONTROLLER/EmprestimoController.java</file>
+            <file>file:/F:/TrabalhoBiblioteca/src/java/DAO/LivroDAO.java</file>
+            <file>file:/F:/TrabalhoBiblioteca/src/java/DAO/UsuarioDAO.java</file>
+            <file>file:/F:/TrabalhoBiblioteca/src/java/CONTROLLER/LivroController.java</file>
+            <file>file:/F:/TrabalhoBiblioteca/src/java/MODEL/EmprestimoMODEL.java</file>
+            <file>file:/F:/TrabalhoBiblioteca/src/java/CONTROLLER/UsuarioController.java</file>
+            <file>file:/F:/TrabalhoBiblioteca/src/java/SERVLET/EmprestimoServlet.java</file>
+            <file>file:/F:/TrabalhoBiblioteca/src/java/util/Conexao.java</file>
+            <file>file:/F:/TrabalhoBiblioteca/src/java/SERVLET/LoginServlet.java</file>
+            <file>file:/F:/TrabalhoBiblioteca/src/java/SERVLET/UsuarioServlet.java</file>
+            <file>file:/F:/TrabalhoBiblioteca/src/java/SERVLET/RegistroServlet.java</file>
+            <file>file:/F:/TrabalhoBiblioteca/src/java/SERVLET/LogoutServlet.java</file>
+            <file>file:/F:/TrabalhoBiblioteca/src/java/SERVLET/LivroServlet.java</file>
+            <file>file:/F:/TrabalhoBiblioteca/src/java/MODEL/LivroMODEL.java</file>
+            <file>file:/F:/TrabalhoBiblioteca/src/java/MODEL/UsuarioMODEL.java</file>
+        </group>
+    </open-files>
+</project-private>

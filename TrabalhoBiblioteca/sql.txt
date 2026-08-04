@@ -1,0 +1,116 @@
+/*
+=====================================================
+
+/*
+=====================================================
+ TABELA ESTADO
+=====================================================
+*/
+
+CREATE TABLE estado (
+    codigo SERIAL PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    sigla VARCHAR(2) NOT NULL UNIQUE
+);
+
+
+/*
+=====================================================
+ TABELA CIDADE
+=====================================================
+*/
+
+CREATE TABLE cidade (
+    codigo SERIAL PRIMARY KEY,
+    nome VARCHAR(120) NOT NULL,
+    codigo_estado INTEGER NOT NULL,
+
+    CONSTRAINT fk_cidade_estado
+        FOREIGN KEY (codigo_estado)
+        REFERENCES estado(codigo)
+        ON DELETE RESTRICT
+);
+
+
+/*
+=====================================================
+ TABELA CLIENTE
+=====================================================
+*/
+
+CREATE TABLE cliente (
+    codigo SERIAL PRIMARY KEY,
+    nome VARCHAR(150) NOT NULL,
+    sexo VARCHAR(20),
+    telefone VARCHAR(30),
+    cpf VARCHAR(14),
+    codigo_cidade INTEGER,
+
+    CONSTRAINT fk_cliente_cidade
+        FOREIGN KEY (codigo_cidade)
+        REFERENCES cidade(codigo)
+        ON DELETE RESTRICT
+);
+
+
+/*
+=====================================================
+ TABELA PRODUTOS
+=====================================================
+*/
+
+CREATE TABLE produtos (
+    id SERIAL PRIMARY KEY,
+    descricao VARCHAR(150) NOT NULL,
+    valor_compra NUMERIC(10,2) NOT NULL DEFAULT 0,
+    valor_venda NUMERIC(10,2) NOT NULL DEFAULT 0,
+    marca VARCHAR(100),
+    quantidade INTEGER NOT NULL DEFAULT 0
+);
+
+
+/*
+=====================================================
+ TABELA VENDA
+=====================================================
+*/
+
+CREATE TABLE venda (
+    codigo SERIAL PRIMARY KEY,
+    codigo_cliente INTEGER NOT NULL,
+
+    valor_compra NUMERIC(10,2) NOT NULL DEFAULT 0,
+    valor_desconto NUMERIC(10,2) NOT NULL DEFAULT 0,
+    valor_total NUMERIC(10,2) NOT NULL DEFAULT 0,
+
+    CONSTRAINT fk_venda_cliente
+        FOREIGN KEY (codigo_cliente)
+        REFERENCES cliente(codigo)
+        ON DELETE RESTRICT
+);
+
+
+/*
+=====================================================
+ TABELA ITENS DA VENDA
+=====================================================
+*/
+
+CREATE TABLE itens_venda_produto (
+    codigo SERIAL PRIMARY KEY,
+    codigo_venda INTEGER NOT NULL,
+    codigo_produto INTEGER NOT NULL,
+    quantidade INTEGER NOT NULL,
+    valor_unitario NUMERIC(10,2) NOT NULL DEFAULT 0,
+
+    CONSTRAINT fk_item_venda
+        FOREIGN KEY (codigo_venda)
+        REFERENCES venda(codigo)
+        ON DELETE CASCADE,
+
+    CONSTRAINT fk_item_produto
+        FOREIGN KEY (codigo_produto)
+        REFERENCES produtos(id)
+        ON DELETE RESTRICT
+);
+

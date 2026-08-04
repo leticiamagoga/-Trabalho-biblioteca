@@ -1,0 +1,493 @@
+:root {
+    --verm-escuro:   #8d1f2e;;
+    --vermelho-escuro:   #8d1f2e;;
+    --salmao:  #f0445b;
+    --rosa-claro:   #e95f72;
+   --rosa-salmao:  #d82c43;
+}
+
+/* ── Base ── */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+
+    background:
+        linear-gradient(
+        rgba(0, 0, 0, 0.4),
+        rgba(0, 0, 0, 0.4)
+        ),
+        url("../img/imagesbibli.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    padding: 30px;
+    color: #333;
+}
+
+/* ── Navbar ── */
+.navbar {
+    background-color: var(--vermelho-escuro) !important;
+    box-shadow: 0 2px 8px rgba(28, 2, 108, 0.2);
+}
+.navbar-brand {
+    font-weight: 700;
+    letter-spacing: .5px;
+}
+.navbar .nav-link {
+    color: rgba(255,255,255,.85) !important;
+    font-weight: 500;
+}
+.navbar .nav-link:hover {
+    color: #fff !important;
+}
+
+/* ── Card ── */
+.card {
+    border: none !important;
+    border-radius: 14px;
+    box-shadow: 0 4px 20px rgba(170, 13, 255, 0.08);
+}
+
+/* ── Table ── */
+.table thead th {
+    background-color: var(--vermelho-escuro);
+    color: #fff;
+    border-color: var(--verm-escuro);
+    font-weight: 600;
+    letter-spacing: .3px;
+    text-align: center; /* Centraliza o texto do cabeçalho */
+    vertical-align: middle; /* Garante alinhamento vertical caso a linha seja alta */
+}
+.table tbody td {
+    text-align: center; /* Centraliza o texto das células de dados */
+    vertical-align: middle; /* Centraliza verticalmente o conteúdo de cada célula */
+}
+.table-hover tbody tr:hover {
+    background-color: #E5E0FF;
+}
+.table {
+    border-radius: 10px;
+    overflow: hidden;
+}
+.table-responsive {
+    border-radius: 10px;
+    box-shadow: 0 2px 12px rgba(0,0,0,.05);
+}
+
+/* ── CONTADOR DE ID AUTOMÁTICO (Adicionado aqui) ── */
+/* 1. Cria a contagem quando o corpo da tabela inicia */
+.table tbody {
+    counter-reset: sequencia-id;
+}
+
+/* 2. Soma +1 a cada linha que aparece na tela */
+.table tbody tr {
+    counter-increment: sequencia-id;
+}
+
+/* 3. Esconde o ID original do banco (diminuindo a fonte para 0) */
+.table tbody tr td:first-child {
+    font-size: 0;
+}
+
+/* 4. Injeta o número sequencial corrigido com o tamanho de fonte normal */
+.table tbody tr td:first-child::before {
+    content: counter(sequencia-id);
+    font-size: 1rem;
+}
+
+/* ── Botões ── */
+
+/* Primário — Salvar / Entrar / Confirmar */
+.btn-primary {
+    background: linear-gradient(135deg, var(--salmao), var(--vermelho-escuro));
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    letter-spacing: .3px;
+    box-shadow: 0 3px 8px rgba(170, 13, 255, 0.3);
+    transition: filter .2s, transform .1s;
+}
+.btn-primary:hover  {
+    filter: brightness(1.1);
+    transform: translateY(-1px);
+    background-color: var(--vermelho-escuro);
+    border-color: var(--vermelho-escuro);
+}
+.btn-primary:active {
+    transform: translateY(0);
+}
+.btn-primary:focus  {
+    box-shadow: 0 0 0 .25rem rgba(170, 13, 255, 0.4);
+}
+
+/* Sucesso — + Novo */
+.btn-success {
+    background-color: var(--verm-escuro);
+    border-color: var(--verm-escuro);
+    border-radius: 8px;
+    font-weight: 600;
+    box-shadow: 0 3px 8px rgba(28, 2, 108, 0.3);
+    transition: filter .2s, transform .1s;
+}
+.btn-success:hover  {
+    filter: brightness(1.2);
+    transform: translateY(-1px);
+    background-color: var(--verm-escuro);
+    border-color: var(--verm-escuro);
+}
+.btn-success:focus  {
+    box-shadow: 0 0 0 .25rem rgba(28, 2, 108, 0.4);
+}
+
+/* Secundário — Cancelar */
+.btn-secondary {
+    background-color: transparent;
+    border: 2px solid #b3b3b3;
+    color: #555;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all .2s;
+}
+.btn-secondary:hover {
+    background-color: #eee;
+    border-color: #888;
+    color: #333;
+}
+
+/* Aviso — Editar */
+.btn-warning {
+    background-color: #ff9f43;
+    border-color: #ff9f43;
+    color: #fff;
+    border-radius: 8px;
+    font-weight: 600;
+    box-shadow: 0 2px 6px rgba(255, 159, 67, 0.3);
+    transition: filter .2s, transform .1s;
+}
+.btn-warning:hover  {
+    filter: brightness(1.1);
+    transform: translateY(-1px);
+    color: #fff;
+}
+.btn-warning:focus  {
+    box-shadow: 0 0 0 .25rem rgba(255, 159, 67, 0.4);
+}
+
+/* Perigo — Excluir */
+.btn-danger {
+    background-color: transparent;
+    border: 2px solid #dc3545; /* Vermelho padrão do Bootstrap */
+    color: #dc3545;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all .2s;
+}
+.btn-danger:hover {
+    background-color: #dc3545;
+    color: #fff;
+    transform: translateY(-1px);
+}
+.btn-danger:focus {
+    box-shadow: 0 0 0 .25rem rgba(220, 53, 69, 0.4); /* Sombra de foco em vermelho */
+}
+/* Devolver */
+.btn-devolver {
+    background-color: #1C026C; /* Navy profundo */
+    border: none; /* Removida a borda ciano antiga para combinar com o visual moderno dos outros botões */
+    color: #EFECFF; /* Escrita no tom de Lavender */
+    border-radius: 8px;
+    font-weight: 600;
+    transition: background-color .2s, transform .1s;
+}
+.btn-devolver:hover {
+    background-color: #2B04A3; /* Tom de roxo escuro ligeiramente mais claro */
+    color: #EFECFF;
+    transform: translateY(-1px);
+}
+.btn-devolver:active {
+    transform: translateY(0);
+}
+.btn-devolver:focus {
+    box-shadow: 0 0 0 .25rem rgba(28, 2, 108, 0.4);
+}
+
+/* ── Formulários ── */
+.form-control:focus, .form-select:focus {
+    border-color: var(--salmao);
+    box-shadow: 0 0 0 .2rem rgba(197, 70, 255, 0.25);
+}
+.form-label {
+    font-weight: 600;
+    color: #444;
+}
+
+/* ── Alerts ── */
+.alert-success {
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+    color: #155724;
+    border-radius: 8px;
+}
+.alert-danger  {
+    background-color: var(--rosa-claro);
+    border-color: var(--rosa-salmao);
+    color: var(--verm-escuro);
+    border-radius: 8px;
+}
+.alert-warning {
+    background-color: #8d1f2e;;
+    border-color: #ffeeba;
+    color: #856404;
+    border-radius: 8px;
+}
+
+/* ── Títulos de página ── */
+h4 {
+    color: var(--verm-escuro);
+    font-weight: 700;
+}
+
+/* ── Badge ── */
+.badge.bg-warning {
+    color: #333 !important;
+}
+
+/* ── Login / Registro ── */
+.card-auth {
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(28, 2, 108, 0.15);
+}
+.card-auth .btn-primary {
+    border-radius: 10px;
+    padding: .6rem;
+    font-size: 1rem;
+}
+.auth-title {
+    color: var(--vermelho-escuro);
+    font-weight: 800;
+    font-size: 1.6rem;
+}
+
+/* =====================================
+   LOGIN PERSONALIZADO
+===================================== */
+
+.login-box{
+    width: 450px;
+    padding: 35px;
+
+    background: rgba(255,255,255,0.95);
+
+    border-radius: 20px;
+
+    backdrop-filter: blur(8px);
+
+    box-shadow:
+        0 12px 35px rgba(0,0,0,0.25);
+}
+
+.auth-title{
+    color: var(--vermelho-escuro);
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
+.login-subtitle{
+    color: #666;
+    margin-bottom: 25px;
+}
+
+.login-box .form-control{
+    height: 50px;
+
+    border-radius: 12px;
+
+    border: 1px solid #d8d8d8;
+}
+
+.login-box .form-control:focus{
+    border-color: var(--salmao);
+
+    box-shadow:
+        0 0 0 .2rem rgba(0,49,253,.15);
+}
+
+.login-box .btn-primary{
+    height: 50px;
+
+    border-radius: 12px;
+
+    font-size: 1rem;
+
+    font-weight: 700;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--verm-escuro),
+            var(--salmao)
+        );
+
+    border: none;
+}
+
+.login-box .btn-primary:hover{
+    transform: translateY(-2px);
+
+    filter: brightness(1.05);
+}
+
+.link-registro{
+    color: var(--vermelho-escuro);
+
+    text-decoration: none;
+
+    font-weight: 700;
+}
+
+.link-registro:hover{
+    text-decoration: underline;
+}
+
+.login-box hr{
+    opacity: .15;
+}
+
+@media(max-width:500px){
+
+    .login-box{
+        width: 95%;
+        padding: 25px;
+    }
+
+}
+
+/* =====================================
+   REGISTRO
+===================================== */
+
+.registro-box{
+    width: 500px;
+
+    padding: 35px;
+
+    background: rgba(255,255,255,0.96);
+
+    border-radius: 22px;
+
+    backdrop-filter: blur(8px);
+
+    box-shadow:
+        0 12px 35px rgba(0,0,0,0.25);
+}
+
+.registro-subtitle{
+    color: #666;
+    margin-bottom: 25px;
+}
+
+.registro-box .form-control{
+    height: 48px;
+
+    border-radius: 12px;
+
+    border: 1px solid #d8d8d8;
+}
+
+.registro-box .form-control:focus{
+    border-color: var(--salmao);
+
+    box-shadow:
+        0 0 0 .2rem rgba(0,49,253,.15);
+}
+
+.registro-box .btn-primary{
+    height: 50px;
+
+    border-radius: 12px;
+
+    font-size: 1rem;
+
+    font-weight: 700;
+}
+
+.registro-box hr{
+    opacity: .15;
+}
+
+@media(max-width:600px){
+
+    .registro-box{
+        width: 95%;
+        padding: 25px;
+    }
+
+}
+
+/* ===== NAVBAR PERSONALIZADA ===== */
+
+.navbar {
+    background: linear-gradient(
+        135deg,
+        var(--vermelho-escuro),
+        var(--salmao)
+    ) !important;
+
+    border-radius: 0 0 18px 18px;
+    padding: 12px 0;
+}
+
+.navbar-brand {
+    font-size: 1.25rem;
+    letter-spacing: .5px;
+}
+
+.nav-custom {
+    padding: 8px 16px !important;
+    border-radius: 10px;
+    transition: all .25s ease;
+    font-weight: 500;
+}
+
+.nav-custom:hover {
+    background: rgba(255,255,255,.15);
+    transform: translateY(-2px);
+}
+
+.nav-custom i {
+    margin-right: 6px;
+}
+
+.navbar .btn-outline-light {
+    border-radius: 10px;
+    font-weight: 600;
+}
+
+.navbar .btn-outline-light:hover {
+    transform: translateY(-1px);
+}
+
+.titulo-pagina {
+    color: white;
+    font-weight: 700;
+}
+
+.subtitulo-pagina {
+    color: white;
+    font-size: 0.9rem;
+}
+
+.subtitulo-form {
+    display: block;
+    text-align: center;
+    font-size: 0.95rem;
+}
+
+.titulo-pagina {
+    color: var(--salmao);
+    font-weight: 700;
+}
